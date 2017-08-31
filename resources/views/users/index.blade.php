@@ -18,11 +18,11 @@
 	@endif
 	<table class="table table-bordered">
 		<tr>
-			<th>No</th>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Roles</th>
-			<th width="280px">Action</th>
+			<th width="1%">No</th>
+			<th width="20%">Name</th>
+			<th width="25%">Email</th>
+			<th width="39%">Roles</th>
+			<th width="15%">Action</th>
 		</tr>
 	@foreach ($data as $key => $user)
 	<tr>
@@ -37,10 +37,10 @@
 			@endif
 		</td>
 		<td>
-			<a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-			<a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+			<a class="btn btn-info btn-sm" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+			<a class="btn btn-primary btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 			{!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+			{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) !!}
         	{!! Form::close() !!}
 		</td>
 	</tr>
