@@ -4,7 +4,7 @@
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
-	            <h2> Visualizar Usuário</h2>
+	            <h2><i class="fa fa-users" aria-hidden="true"></i> Visualizar Usuário</h2>
 	        </div>
 	        <div class="pull-right">
 	            <a class="btn btn-primary" href="{{ route('users.index') }}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>

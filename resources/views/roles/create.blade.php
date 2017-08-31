@@ -4,7 +4,7 @@
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
-	            <h2>Nova Regra</h2>
+	            <h2><i class="fa fa-unlock-alt" aria-hidden="true"></i> Nova Regra</h2>
 	        </div>
 	        <div class="pull-right">
 	            <a class="btn btn-primary" href="{{ route('roles.index') }}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Permissões:</strong>
-                <br/>
+                <hr>
                 @foreach($permission as $value)
                 	<label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
                 	{{ $value->display_name }}</label>

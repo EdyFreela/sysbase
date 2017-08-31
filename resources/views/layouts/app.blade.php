@@ -5,8 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sysbase</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <style>
+        /* COMMON INTERFACE*/
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        hr {
+            margin-top: 0px;
+            margin-bottom: 15px;
+        }
+        .panel {
+            border-radius: 0px;
+            -webkit-box-shadow: 0px;
+            box-shadow: 0px;
+        }        
+        .btn {
+            border-radius: 0px;
+        }
+        .form-control {
+            border-radius: 0px;
+        }
+        .table {
+            font-size: 14px;
+        }       
+
+        /* TOP NAVBAR */
+        .navbar-inverse {
+            background-color: #000;
+        }        
+        .navbar-inverse .navbar-brand {
+            color: #fff;
+        }        
+        .fa-btn {
+            margin-right: 6px;
+        }
+
+        /* CONTENT HEADER */
+        h2{
+            font-weight: 300;
+        }
+        .container > .row > .col-lg-12 > .pull-left > h2,
+        .container > .row > .col-lg-12 > .pull-right > a{
+            margin-top:10px;
+            margin-bottom: 20px;
+        }
+
+        /* CONTENT */
+        .label {
+            font-size: 65%;
+            font-weight: 300;
+            border-radius: 0px;
+        }
+    </style>
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-inverse navbar-static-top">

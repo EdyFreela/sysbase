@@ -1,17 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Painel Administrativo</div>
-
-                <div class="panel-body">
-                    Você está logado!
-                </div>
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2><i class="fa fa-tachometer" aria-hidden="true"></i> Painel de Controle</h2>
             </div>
         </div>
     </div>
-</div>
 @endsection
