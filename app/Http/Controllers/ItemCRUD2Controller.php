@@ -46,7 +46,7 @@ class ItemCRUD2Controller extends Controller
         Item::create($request->all());
 
         return redirect()->route('itemCRUD2.index')
-                        ->with('success','Item created successfully');
+                        ->with('success','Item criado com sucesso');
     }
 
     /**
@@ -90,7 +90,7 @@ class ItemCRUD2Controller extends Controller
         Item::find($id)->update($request->all());
 
         return redirect()->route('itemCRUD2.index')
-                        ->with('success','Item updated successfully');
+                        ->with('success','Item atualizado com sucesso');
     }
 
     /**
@@ -103,6 +103,6 @@ class ItemCRUD2Controller extends Controller
     {
         Item::find($id)->delete();
         return redirect()->route('itemCRUD2.index')
-                        ->with('success','Item deleted successfully');
+                        ->with('success','Item deletado com sucesso');
     }
 }

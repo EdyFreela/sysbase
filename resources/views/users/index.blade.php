@@ -4,10 +4,10 @@
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
-	            <h2>Users Management</h2>
+	            <h2>Gestão de Usuários</h2>
 	        </div>
 	        <div class="pull-right">
-	            <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+	            <a class="btn btn-success" href="{{ route('users.create') }}"><i class="fa fa-plus" aria-hidden="true"></i> Novo Usuário</a>
 	        </div>
 	    </div>
 	</div>
@@ -18,11 +18,11 @@
 	@endif
 	<table class="table table-bordered">
 		<tr>
-			<th width="1%">No</th>
-			<th width="20%">Name</th>
+			<th width="1%">#</th>
+			<th width="20%">Nome</th>
 			<th width="25%">Email</th>
-			<th width="39%">Roles</th>
-			<th width="15%">Action</th>
+			<th width="39%">Regras</th>
+			<th width="15%">Ações</th>
 		</tr>
 	@foreach ($data as $key => $user)
 	<tr>
