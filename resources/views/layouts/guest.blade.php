@@ -33,6 +33,11 @@
         }       
 
         /* TOP NAVBAR */
+        .navbar-static-top {
+            z-index: 1000;
+            border-width: 0px 0px 1px;
+            border-color: rgb(220, 220, 220);
+        }
         .navbar-inverse {
             background-color: #000;
         }        
@@ -75,7 +80,7 @@
                 </button>
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Sysbase
+                    <img src="{{ url('assets/imgs/logo-guest.png') }}">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
