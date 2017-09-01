@@ -44,6 +44,81 @@
         }
 
         /* CONTENT HEADER */
+        .breadcrumb {
+            padding: 0px;
+            background: #f5f5f5;
+            list-style: none; 
+            overflow: hidden;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            border-radius: 0px;
+        }
+        .breadcrumb>li+li:before {
+            padding: 0;
+        }
+        .breadcrumb li { 
+            float: left;
+            background-color: #d4d4d4;
+        }
+        .breadcrumb li.active a {
+            background: brown;                   /* fallback color */
+            background: #d4d4d4; ; 
+        }
+        .breadcrumb li.completed a {
+            background: brown;                   /* fallback color */
+            background: hsl(0, 0%, 69%); 
+        }
+        .breadcrumb li.active a:after {
+            border-left: 30px solid #d4d4d4; ;
+        }
+        .breadcrumb li.completed a:after {
+            border-left: 30px solid hsl(0, 0%, 69%);
+        } 
+
+        .breadcrumb li a {
+            color: white;
+            text-decoration: none; 
+            padding: 5px 0 5px 45px;
+            position: relative; 
+            display: block;
+            float: left;
+            font-size:11px;
+        }
+        .breadcrumb li a:after { 
+            content: " "; 
+            display: block; 
+            width: 0; 
+            height: 0;
+            border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid hsla(0, 0%, 83%, 1);
+            position: absolute;
+            top: 50%;
+            margin-top: -50px; 
+            left: 100%;
+            z-index: 2; 
+        }   
+        .breadcrumb li a:before { 
+            content: " "; 
+            display: block; 
+            width: 0; 
+            height: 0;
+            border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid white;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px; 
+            margin-left: 1px;
+            left: 100%;
+            z-index: 1; 
+        }   
+        .breadcrumb li:first-child a {
+            padding-left: 15px;
+        }
+        .breadcrumb li a:hover { background: #5cb85c  ; }
+        .breadcrumb li a:hover:after { border-left-color: #5cb85c   !important; }
+
         h2{
             font-weight: 300;
         }

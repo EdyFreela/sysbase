@@ -1,13 +1,17 @@
 @extends('layouts.app')
  
 @section('content')
+    <div>
+        <ul class="breadcrumb">
+            <li class="completed"><a href="{{ url('home') }}">Home</a></li>
+            <li class="active"><a href="{{ route('users.index') }}">Usuários</a></li>
+            <li><a href="javascript:void(0);">Novo</a></li>
+        </ul>
+    </div>
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
 	            <h2><i class="fa fa-users" aria-hidden="true"></i> Novo Usuário</h2>
-	        </div>
-	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ route('users.index') }}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
 	        </div>
 	    </div>
 	</div>

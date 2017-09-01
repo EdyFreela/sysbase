@@ -1,13 +1,17 @@
 @extends('layouts.app')
  
 @section('content')
+    <div>
+        <ul class="breadcrumb">
+            <li class="completed"><a href="{{ url('home') }}">Home</a></li>
+            <li class="active"><a href="{{ route('itemCRUD2.index') }}">CRUD</a></li>
+            <li><a href="javascript:void(0);">Editar</a></li>
+        </ul>
+    </div>
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
-	            <h2>Editar Item</h2>
-	        </div>
-	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ route('itemCRUD2.index') }}"><i class="fa fa-chevron-left" aria-hidden="true"></i>  Voltar</a>
+	            <h2><i class="fa fa-list-alt" aria-hidden="true"></i> Editar CRUD</h2>
 	        </div>
 	    </div>
 	</div>

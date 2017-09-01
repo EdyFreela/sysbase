@@ -1,6 +1,12 @@
 @extends('layouts.app')
  
 @section('content')
+	<div>
+		<ul class="breadcrumb">
+			<li class="completed"><a href="{{ url('home') }}">Home</a></li>
+			<li><a href="javascript:void(0);">Usuários</a></li>
+		</ul>
+	</div>
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
