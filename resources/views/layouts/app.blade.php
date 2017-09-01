@@ -149,8 +149,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Sysbase
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    <img src="{{ url('assets/imgs/logo-admin.png') }}">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -158,7 +158,6 @@
                 <ul class="nav navbar-nav">
                     @if (Auth::guest())
                     @else
-                        <li><a href="{{ url('/home') }}">Painel</a></li>
                         <li><a href="{{ route('users.index') }}">Usuários</a></li>
                         <li><a href="{{ route('roles.index') }}">Regras</a></li>
                         <li><a href="{{ route('itemCRUD2.index') }}">CRUD</a></li>
