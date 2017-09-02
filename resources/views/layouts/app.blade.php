@@ -160,6 +160,7 @@
                     @else
                         <li><a href="{{ route('users.index') }}">Usuários</a></li>
                         <li><a href="{{ route('roles.index') }}">Regras</a></li>
+                        <li><a href="{{ route('permissions.index') }}">Permissões</a></li>
                         <li><a href="{{ route('itemCRUD2.index') }}">CRUD</a></li>
                     @endif
                 </ul>
