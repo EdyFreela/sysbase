@@ -42,7 +42,14 @@
         .alert-success > p{
             font-size: 24px;
             font-weight: 100;
-        }   
+        }
+        .swal2-modal {
+            font-family: 'Roboto', sans-serif;
+            border-radius: 0px;
+        }
+        .swal2-modal .swal2-styled {
+            border-radius: 0px;
+        }        
 
         /* TOP NAVBAR */
         .navbar-inverse {
