@@ -48,8 +48,8 @@
 		<td>
 			<a class="btn btn-info btn-md" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
 			<a class="btn btn-primary btn-md" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-			{!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-			{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-md']) !!}
+			{!! Form::open(['id' => 'user-delete-'.$user->id, 'method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+			{!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $user->id, 'class' => 'btn btn-danger btn-md']) !!}
         	{!! Form::close() !!}
 		</td>
 	</tr>
@@ -57,4 +57,60 @@
 	</tbody>
 	</table>
 	{!! $data->render() !!}
+@endsection
+
+@section('script')
+
+<!-- ADITIONAL SCRIPT -->
+<script type="text/javascript">
+
+$('button.btn-danger').on('click', function(){
+
+    var id        = $(this).data('id');
+    var form_name = 'user-delete-' + id;
+	var $inputs   = $('#' + form_name + ' :input');
+
+	var values = {};
+	$inputs.each(function() {
+	    values[this.name] = $(this).val();
+	});
+
+	var token = values._token;
+	var url   = $('#' + form_name).attr('action');
+
+	swal({
+		title: 'Você tem certeza?',
+		text: "Você não poderá reverter isso!",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Sim, deletar isso!',
+		cancelButtonText: "Não, cancelar!"
+	}).then(function (miss) {
+        $.ajax({
+            url: url,
+            data: {_method: 'delete', _token :token},
+            type: 'post',
+            datatype: 'json',
+            success: function (result) {
+                swal({
+                	title: 'Deletado!', 
+                	text: 'Este registro foi deletado.', 
+                	type: 'success',
+    				allowOutsideClick: false
+                }).then(function(result2){
+                	if(result2 == true){
+                		location.reload();
+                	}
+                });
+            }
+        });
+	}, function (dismiss) {
+	  if (dismiss === 'cancel') {
+	    swal('Cancelado', 'Nenhuma registro foi deletado', 'error')
+	  }
+	});
+
+});
+ 
+</script>
 @endsection

@@ -45,8 +45,8 @@
 			<a class="btn btn-primary btn-md" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 			@endpermission
 			@permission('role-delete')
-			{!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-            {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-md']) !!}
+			{!! Form::open(['id' => 'role-delete-'.$role->id, 'method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+            {!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $role->id, 'class' => 'btn btn-danger btn-md']) !!}
         	{!! Form::close() !!}
         	@endpermission
 		</td>
@@ -55,4 +55,60 @@
 	</tbody>
 	</table>
 	{!! $roles->render() !!}
+@endsection
+
+@section('script')
+
+<!-- ADITIONAL SCRIPT -->
+<script type="text/javascript">
+
+$('button.btn-danger').on('click', function(){
+
+    var id        = $(this).data('id');
+    var form_name = 'role-delete-' + id;
+	var $inputs   = $('#' + form_name + ' :input');
+
+	var values = {};
+	$inputs.each(function() {
+	    values[this.name] = $(this).val();
+	});
+
+	var token = values._token;
+	var url   = $('#' + form_name).attr('action');
+
+	swal({
+		title: 'Você tem certeza?',
+		text: "Você não poderá reverter isso!",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Sim, deletar isso!',
+		cancelButtonText: "Não, cancelar!"
+	}).then(function (miss) {
+        $.ajax({
+            url: url,
+            data: {_method: 'delete', _token :token},
+            type: 'post',
+            datatype: 'json',
+            success: function (result) {
+                swal({
+                	title: 'Deletado!', 
+                	text: 'Este registro foi deletado.', 
+                	type: 'success',
+    				allowOutsideClick: false
+                }).then(function(result2){
+                	if(result2 == true){
+                		location.reload();
+                	}
+                });
+            }
+        });
+	}, function (dismiss) {
+	  if (dismiss === 'cancel') {
+	    swal('Cancelado', 'Nenhuma registro foi deletado', 'error')
+	  }
+	});
+
+});
+ 
+</script>
 @endsection
