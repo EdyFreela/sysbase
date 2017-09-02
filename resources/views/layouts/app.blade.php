@@ -31,7 +31,18 @@
         }
         .table {
             font-size: 14px;
-        }       
+        }
+        .alert-danger, .alert-success{
+            border-radius: 0px;
+        }
+        .alert-danger > h3{
+            font-weight: 100;
+            margin-top: 0px;
+        }
+        .alert-success > p{
+            font-size: 24px;
+            font-weight: 100;
+        }   
 
         /* TOP NAVBAR */
         .navbar-inverse {

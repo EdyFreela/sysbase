@@ -19,7 +19,7 @@
 	</div>
 	@if ($message = Session::get('success'))
 		<div class="alert alert-success">
-			<p>{{ $message }}</p>
+			<p><i class="fa fa-check" aria-hidden="true"></i> {{ $message }}</p>
 		</div>
 	@endif
 	<table class="table table-bordered table-hover">
