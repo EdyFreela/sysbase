@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('style')
+<style>
+#painel{
+    border-left: 3px solid orange;
+}
+</style>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">

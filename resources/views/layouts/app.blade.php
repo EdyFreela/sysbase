@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{ url('assets/css/simple-sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/admin.css') }}">
 
     <style>
         /* COMMON INTERFACE*/
@@ -52,6 +54,9 @@
         }        
 
         /* TOP NAVBAR */
+        .navbar {
+            margin-bottom: 0px;
+        }        
         .navbar-inverse {
             background-color: #000;
         }        
@@ -141,8 +146,8 @@
         h2{
             font-weight: 300;
         }
-        .container > .row > .col-lg-12 > .pull-left > h2,
-        .container > .row > .col-lg-12 > .pull-right > a{
+        .container-fluid > .row > .col-lg-12 > .pull-left > h2,
+        .container-fluid > .row > .col-lg-12 > .pull-right > a{
             margin-top:10px;
             margin-bottom: 20px;
         }
@@ -160,7 +165,7 @@
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -169,6 +174,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
+                <a href="javascript:void(0);" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     <img src="{{ url('assets/imgs/logo-admin.png') }}">
@@ -179,10 +187,10 @@
                 <ul class="nav navbar-nav">
                     @if (Auth::guest())
                     @else
+                        <!--
+                        MENU ITEM ADMIN
                         <li><a href="{{ route('users.index') }}">Usuários</a></li>
-                        <li><a href="{{ route('roles.index') }}">Regras</a></li>
-                        <li><a href="{{ route('permissions.index') }}">Permissões</a></li>
-                        <li><a href="{{ route('itemCRUD2.index') }}">CRUD</a></li>
+                        -->
                     @endif
                 </ul>
                 <!-- Right Side Of Navbar -->
@@ -205,13 +213,73 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        @yield('content')
+
+    <div id="wrapper">
+    
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="{{ url('/home') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
+                <li><a href="javascript:void(0);" class="tree-toggler" id="super"><i class="fa fa-certificate" aria-hidden="true"></i> Super <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                    <ul class="tree">
+                        <li><a href="{{ route('users.index') }}" id="super-users"><i class="fa fa-users" aria-hidden="true"></i> Usuários</a></li>
+                        <li><a href="{{ route('roles.index') }}" id="super-roles"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Regras</a></li>
+                        <li><a href="{{ route('permissions.index') }}" id="super-permissions"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Permissões</a></li>
+                        <li><a href="{{ route('itemCRUD2.index') }}" id="super-crud"><i class="fa fa-list-alt" aria-hidden="true"></i> CRUD</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="sidebar-footer">&copy <?php echo date('Y'); ?> USEMODA - V0.1</div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js" crossorigin="anonymous"></script>
+    <script src="{{ url('assets/jsc/jquery.cookie.js') }}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $(document).ready(function () {
+
+            if($.cookie('menu_toggle')=='toggled'){
+                $("#wrapper").toggleClass("toggled");
+                $.cookie('menu_toggle', 'toggled');
+            }else{
+                $(".sidebar-footer").hide();
+            };
+
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+                if($.cookie('menu_toggle')=='toggled'){
+                    $.cookie('menu_toggle', '');
+                    $(".sidebar-footer").hide(150);
+                }else{
+                    $.cookie('menu_toggle', 'toggled');
+                    $(".sidebar-footer").show(150);
+                };                
+            });
+
+            $('.tree-toggler').parent().children('ul.tree').toggle(0);
+
+            $('.tree-toggler').click(function () {
+                $(this).parent().children('ul.tree').toggle(150);
+            });
+        });
+    </script>
+
+
     @yield('script')
 
 </body>

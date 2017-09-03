@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@section('style')
+<style>
+#super-crud{
+    border-left: 3px solid orange;
+}
+</style>
+@endsection
  
 @section('content')
     <div>
@@ -44,4 +52,13 @@
         </div>
 	</div>
 	{!! Form::close() !!}
+@endsection
+
+@section('script')
+<!-- Menu Toggle Script -->
+<script>
+    $(document).ready(function () {
+        $('.tree-toggler#super').parent().children('ul.tree').toggle(150);
+    });
+</script>
 @endsection
