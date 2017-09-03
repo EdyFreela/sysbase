@@ -19,7 +19,7 @@
                             <label for="email" class="col-md-12">E-Mail</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" tabindex="1">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -34,7 +34,7 @@
                             <label for="password" class="col-md-6"><a href="{{ url('/password/reset') }}">Esqueceu sua Senha?</a></label>
                             
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password">
+                                <input id="password" type="password" class="form-control" name="password" tabindex="2">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary btn-login">
+                                <button type="submit" class="btn btn-primary btn-login" tabindex="3">
                                     <i class="fa fa-btn fa-sign-in"></i> Acesso
                                 </button>
 
