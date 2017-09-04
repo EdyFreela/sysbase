@@ -35,9 +35,11 @@
 		<tr>
 			<th width="1%">#</th>
 			<th width="20%">Nome</th>
-			<th width="25%">Email</th>
-			<th width="39%">Regras</th>
-			<th width="15%">Ações</th>
+			<th width="15%">Email</th>
+			<th width="*">Regras</th>
+			<th width="80px" class="text-center">Visualizar</th>
+			<th width="80px" class="text-center">Editar</th>
+			<th width="80px" class="text-center">Excluir</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -53,12 +55,12 @@
 				@endforeach
 			@endif
 		</td>
-		<td>
-			<a class="btn btn-info btn-md" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-			<a class="btn btn-primary btn-md" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+		<td class="text-center"><a class="btn btn-info btn-md" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>		
+		<td class="text-center"><a class="btn btn-primary btn-md" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>		
+		<td class="text-center">
 			{!! Form::open(['id' => 'user-delete-'.$user->id, 'method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
 			{!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $user->id, 'class' => 'btn btn-danger btn-md']) !!}
-        	{!! Form::close() !!}
+        	{!! Form::close() !!}			
 		</td>
 	</tr>
 	@endforeach

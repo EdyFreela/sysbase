@@ -37,8 +37,10 @@
 		<tr>
 			<th width="1%">#</th>
 			<th width="42%">Titulo</th>
-			<th width="42%">Descrição</th>
-			<th width="15%">Ação</th>
+			<th width="*">Descrição</th>
+			<th width="80px" class="text-center">Visualizar</th>
+			<th width="80px" class="text-center">Editar</th>
+			<th width="80px" class="text-center">Excluir</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -47,16 +49,18 @@
 		<td>{{ ++$i }}</td>
 		<td>{{ $item->title }}</td>
 		<td>{{ $item->description }}</td>
-		<td>
-			<a class="btn btn-info btn-md" href="{{ route('itemCRUD2.show',$item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		<td class="text-center"><a class="btn btn-info btn-md" href="{{ route('itemCRUD2.show',$item->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+		<td class="text-center">
 			@permission('item-edit')
 			<a class="btn btn-primary btn-md" href="{{ route('itemCRUD2.edit',$item->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-			@endpermission
+			@endpermission			
+		</td>
+		<td class="text-center">
 			@permission('item-delete')
 			{!! Form::open(['id' => 'item-delete-'.$item->id, 'method' => 'DELETE','route' => ['itemCRUD2.destroy', $item->id], 'style'=>'display:inline']) !!}
             {!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $item->id, 'class' => 'btn btn-danger btn-md']) !!}
         	{!! Form::close() !!}
-        	@endpermission       	
+        	@endpermission			
 		</td>
 	</tr>		
 	@endforeach

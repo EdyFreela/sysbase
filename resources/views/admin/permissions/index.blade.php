@@ -38,8 +38,10 @@
 			<th width="1%">#</th>
 			<th width="15%">Nome</th>
 			<th width="20%">Nome de Exibição</th>
-			<th width="49%">Descrição</th>
-			<th width="15%">Ação</th>
+			<th width="*">Descrição</th>
+			<th width="80px" class="text-center">Visualizar</th>
+			<th width="80px" class="text-center">Editar</th>
+			<th width="80px" class="text-center">Excluir</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,16 +51,18 @@
 		<td>{{ $permission->name }}</td>
 		<td>{{ $permission->display_name }}</td>
 		<td>{{ $permission->description }}</td>
-		<td>
-			<a class="btn btn-info btn-md" href="{{ route('permissions.show',$permission->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		<td class="text-center"><a class="btn btn-info btn-md" href="{{ route('permissions.show',$permission->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+		<td class="text-center">
 			@permission('permission-edit')
 			<a class="btn btn-primary btn-md" href="{{ route('permissions.edit',$permission->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-			@endpermission
+			@endpermission			
+		</td>
+		<td class="text-center">
 			@permission('permission-delete')
 			{!! Form::open(['id' => 'permission-delete-'.$permission->id, 'method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
             {!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $permission->id, 'class' => 'btn btn-danger btn-md']) !!}
         	{!! Form::close() !!}
-        	@endpermission
+        	@endpermission			
 		</td>
 	</tr>
 	@endforeach

@@ -37,8 +37,10 @@
 		<tr>
 			<th width="1%">#</th>
 			<th width="30%">Nome</th>
-			<th width="54%">Descrição</th>
-			<th width="15%">Ação</th>
+			<th width="*">Descrição</th>
+			<th width="80px" class="text-center">Visualizar</th>
+			<th width="80px" class="text-center">Editar</th>
+			<th width="80px" class="text-center">Excluir</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -47,16 +49,18 @@
 		<td>{{ ++$i }}</td>
 		<td>{{ $role->display_name }}</td>
 		<td>{{ $role->description }}</td>
-		<td>
-			<a class="btn btn-info btn-md" href="{{ route('roles.show',$role->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		<td class="text-center"><a class="btn btn-info btn-md" href="{{ route('roles.show',$role->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+		<td class="text-center">
 			@permission('role-edit')
 			<a class="btn btn-primary btn-md" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-			@endpermission
+			@endpermission			
+		</td>
+		<td class="text-center">
 			@permission('role-delete')
 			{!! Form::open(['id' => 'role-delete-'.$role->id, 'method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
             {!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $role->id, 'class' => 'btn btn-danger btn-md']) !!}
         	{!! Form::close() !!}
-        	@endpermission
+        	@endpermission			
 		</td>
 	</tr>
 	@endforeach
