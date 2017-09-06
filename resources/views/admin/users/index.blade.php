@@ -34,6 +34,7 @@
 	<thead>
 		<tr>
 			<th width="1%">#</th>
+			<th width="10%">Tipo</th>
 			<th width="20%">Nome</th>
 			<th width="15%">Email</th>
 			<th width="*">Regras</th>
@@ -46,6 +47,7 @@
 	@foreach ($data as $key => $user)
 	<tr>
 		<td>{{ ++$i }}</td>
+		<td>{{ $user->user_type }}</td>
 		<td>{{ $user->name }}</td>
 		<td>{{ $user->email }}</td>
 		<td>

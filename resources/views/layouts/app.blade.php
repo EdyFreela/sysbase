@@ -62,7 +62,35 @@
         }        
         .navbar-inverse .navbar-brand {
             color: #fff;
+        }
+        .navbar-right > .drop-user > a {
+            padding-top: 8px;
+            padding-bottom: 7px;
         }        
+        .navbar-right > .drop-user > a > div{
+            float:left;
+        }
+        .navbar-right > .drop-user > a > div > .navbar-user-name,
+        .navbar-right > .drop-user > a > div > .navbar-user-type{
+            margin: 0;
+            padding: 0;
+        } 
+        .navbar-right > .drop-user > a > div > .navbar-user-name{
+            font-size: 16px;
+            line-height: 1.3em;
+        }
+        .navbar-right > .drop-user > a > div > .navbar-user-type{
+            font-size: 12px;
+            line-height: 1.1em;
+        }      
+        .navbar-right > .drop-user > a > img{
+            width:35px;
+            margin-left:7px;
+            border-radius: 100%;
+        }
+
+
+
         .fa-btn {
             margin-right: 6px;
         }
@@ -200,9 +228,14 @@
                         <li><a href="{{ url('/login') }}">Acesso</a></li>
                         <li><a href="{{ url('/register') }}">Registro</a></li>
                     @else
-                        <li class="dropdown">
+                        <li class="dropdown drop-user">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <div>
+                                    <p class="navbar-user-name">{{ Auth::user()->name }}</p>
+                                    <p class="navbar-user-type">{{ Auth::user()->user_type }}</p> 
+                                </div>
+                                <img src="{{ url('assets/imgs/no-avatar.png') }}">
+                                <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sair</a></li>
