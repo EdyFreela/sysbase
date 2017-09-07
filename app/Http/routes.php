@@ -23,6 +23,10 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::resource('users','UserController');
 
+	Route::get('profile',                   ['as'=>'profile.index',           'uses'=>'ProfileController@index','middleware'           => ['permission:profile-list|profile-create|profile-edit|profile-delete']]);
+	Route::get('profile/edit',              ['as'=>'profile.edit',            'uses'=>'ProfileController@edit','middleware'            => ['permission:profile-edit']]);
+	Route::patch('profile/update',          ['as'=>'profile.update',          'uses'=>'ProfileController@update','middleware'          => ['permission:profile-edit']]);
+
 	Route::get('roles',                     ['as'=>'roles.index',             'uses'=>'RoleController@index','middleware'              => ['permission:role-list|role-create|role-edit|role-delete']]);
 	Route::get('roles/create',              ['as'=>'roles.create',            'uses'=>'RoleController@create','middleware'             => ['permission:role-create']]);
 	Route::post('roles/create',             ['as'=>'roles.store',             'uses'=>'RoleController@store','middleware'              => ['permission:role-create']]);
