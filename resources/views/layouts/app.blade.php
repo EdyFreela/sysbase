@@ -258,7 +258,7 @@
                 <li><a href="javascript:void(0);" class="tree-toggler" id="super"><i class="fa fa-certificate" aria-hidden="true"></i> Super <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     <ul class="tree">
                         <li><a href="{{ route('users.index') }}" id="super-users"><i class="fa fa-users" aria-hidden="true"></i> Usuários</a></li>
-                        <li><a href="{{ route('roles.index') }}" id="super-roles"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Regras</a></li>
+                        <li><a href="{{ route('roles.index') }}" id="super-roles"><i class="fa fa-check" aria-hidden="true"></i> Regras</a></li>
                         <li><a href="{{ route('permissions.index') }}" id="super-permissions"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Permissões</a></li>
                         <li><a href="{{ route('itemCRUD2.index') }}" id="super-crud"><i class="fa fa-list-alt" aria-hidden="true"></i> CRUD</a></li>
                     </ul>

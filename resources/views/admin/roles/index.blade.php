@@ -18,7 +18,7 @@
 	<div class="row">
 	    <div class="col-lg-12 margin-tb">
 	        <div class="pull-left">
-	            <h2><i class="fa fa-unlock-alt" aria-hidden="true"></i> Gestão de Regras</h2>
+	            <h2><i class="fa fa-check" aria-hidden="true"></i> Gestão de Regras</h2>
 	        </div>
 	        <div class="pull-right">
 	        	@permission('role-create')
