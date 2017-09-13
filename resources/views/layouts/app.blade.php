@@ -192,7 +192,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <!-- Collapsed Hamburger -->
