@@ -206,7 +206,7 @@
                 <a href="javascript:void(0);" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/admin/painel') }}">
                     <img src="{{ url('assets/imgs/logo-admin.png') }}">
                 </a>
             </div>
@@ -254,7 +254,7 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><a href="{{ url('/home') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
+                <li><a href="{{ url('/admin/painel') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
                 <li><a href="javascript:void(0);" class="tree-toggler" id="super"><i class="fa fa-certificate" aria-hidden="true"></i> Super <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     <ul class="tree">
                         <li><a href="{{ route('users.index') }}" id="super-users"><i class="fa fa-users" aria-hidden="true"></i> Usuários</a></li>

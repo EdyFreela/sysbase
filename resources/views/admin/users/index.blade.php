@@ -21,7 +21,9 @@
 	            <h2><i class="fa fa-users" aria-hidden="true"></i> Gestão de Usuários</h2>
 	        </div>
 	        <div class="pull-right">
+	        	@permission('user-create')
 	            <a class="btn btn-success" href="{{ route('users.create') }}"><i class="fa fa-asterisk" aria-hidden="true"></i> Novo Usuário</a>
+	        	@endpermission
 	        </div>
 	    </div>
 	</div>
@@ -58,11 +60,16 @@
 			@endif
 		</td>
 		<td class="text-center"><a class="btn btn-info btn-md" href="{{ route('users.show',$user->id) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>		
-		<td class="text-center"><a class="btn btn-primary btn-md" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>		
 		<td class="text-center">
+			@permission('user-edit')
+			<a class="btn btn-primary btn-md" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>		
+			@endpermission
+		<td class="text-center">
+			@permission('user-delete')
 			{!! Form::open(['id' => 'user-delete-'.$user->id, 'method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
 			{!! Form::button('<i class="fa fa-trash"></i>', ['data-id' => $user->id, 'class' => 'btn btn-danger btn-md']) !!}
-        	{!! Form::close() !!}			
+        	{!! Form::close() !!}
+        	@endpermission			
 		</td>
 	</tr>
 	@endforeach
